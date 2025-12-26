@@ -70,8 +70,8 @@ def create_addon_zip(addon_name, version=None):
     
     print(f'Creating ZIP: {zip_path}...')
     
-    # Manual ZIP creation - ONE LEVEL ONLY - NO COMPRESSION (Safe Mode++)
-    with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_STORED) as zf:
+    # Standard ZIP creation (Best compatibility)
+    with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as zf:
         # Walk the addon directory
         for root, dirs, files in os.walk(addon_path):
             # EXCLUDE everything irrelevant
@@ -95,6 +95,18 @@ def create_addon_zip(addon_name, version=None):
                 
                 zf.write(abs_path, zip_arcname)
     
+    # Verify ZIP integrity
+    try:
+        with zipfile.ZipFile(zip_path, 'r') as zf:
+            ret = zf.testzip()
+            if ret is not None:
+                print(f'❌ Corrupted file in ZIP: {ret}')
+                return None
+            print(f'✅ ZIP Entry Check Passed: {zip_path}')
+    except Exception as e:
+        print(f'❌ ZIP Validation Failed: {e}')
+        return None
+
     print(f'[OK] Created Safe ZIP: {zip_path}')
     return zip_path
 
