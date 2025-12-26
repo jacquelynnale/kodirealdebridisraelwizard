@@ -95,7 +95,7 @@ v1.0.0 (2024-12-26)
     <extension point="xbmc.addon.repository" name="Israel Wizard Repository">
         <info compressed="false">https://jacquelynnale.github.io/kodirealdebridisraelwizard/addons.xml</info>
         <checksum>https://jacquelynnale.github.io/kodirealdebridisraelwizard/addons.xml.md5</checksum>
-        <datadir zip="true">https://jacquelynnale.github.io/kodirealdebridisraelwizard/zips/</datadir>
+        <datadir zip="true">https://github.com/jacquelynnale/kodirealdebridisraelwizard/releases/download/v1.0.4/</datadir>
     </extension>
     
     <extension point="xbmc.addon.metadata">
