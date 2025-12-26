@@ -19,4 +19,8 @@
   <fanartres>720</fanartres> <!-- Limit fanart to 720p -->
   <splash>false</splash> <!-- Disable splash for faster startup -->
   <packagefoldersize>200</packagefoldersize> <!-- Limit package cache -->
+  <loglevel>-1</loglevel> <!-- Disable logging for performance -->
+  <videolibrary>
+    <dateadded>0</dateadded> <!-- Faster library scanning -->
+  </videolibrary>
 </advancedsettings>

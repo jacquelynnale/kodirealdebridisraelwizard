@@ -393,6 +393,14 @@ class AddonInstaller:
     <setting id="rd.enabled" default="true">true</setting>
     <setting id="rd.token">{rd_token}</setting>
     <setting id="rd.priority">90</setting>
+    
+    <!-- Speed Optimizations -->
+    <setting id="general.scraperTimeout">15</setting> <!-- 15s Timeout -->
+    <setting id="general.sourcesTimeout">15</setting>
+    <setting id="general.autoPlay">true</setting> <!-- Netflix Style Auto Play -->
+    <setting id="general.showSourceSelect">false</setting>
+    <setting id="scraping.prem.enable">false</setting> <!-- Disable Premiumize if not used -->
+    <setting id="scraping.ad.enable">false</setting> <!-- Disable AllDebrid if not used -->
 </settings>'''
                 
                 with open(pov_settings, 'w', encoding='utf-8') as f:

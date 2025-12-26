@@ -27,7 +27,29 @@ COLORS = {
 class UIBuilder:
     def __init__(self):
         self.dialog = xbmcgui.Dialog()
-    
+        
+    def disable_resource_hogs(self):
+        """Disable non-essential services for speed."""
+        settings = [
+            # specific settings to disable
+            {'setting': 'filelists.showparentdiritems', 'value': False}, # Clean UI
+            {'setting': 'lookandfeel.enablerssfeeds', 'value': False},  # CPU Saver
+            {'setting': 'weather.addon', 'value': ''},                  # CPU Saver
+            {'setting': 'audiooutput.guisoundmode', 'value': 0},        # No UI Sounds (Speed)
+            {'setting': 'services.esallinterfaces', 'value': False},    # Security/Speed
+            {'setting': 'services.upnpserver', 'value': False},         # Security/Speed
+        ]
+        
+        for s in settings:
+            try:
+                xbmc.executeJSONRPC(json.dumps({
+                    'jsonrpc': '2.0', 'method': 'Settings.SetSettingValue',
+                    'params': s, 'id': 1
+                }))
+            except:
+                pass
+        self.log('Disabled resource hogs')
+
     def log(self, message, level=xbmc.LOGINFO):
         xbmc.log(f'{ADDON_ID} UIBuilder: {message}', level)
     
@@ -66,6 +88,9 @@ class UIBuilder:
             
             # Configure Netflix Layout
             self.setup_netflix_layout()
+            
+            # Max Performance Tweaks
+            self.disable_resource_hogs()
             
             return True
         except Exception as e:
