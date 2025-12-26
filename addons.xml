@@ -90,7 +90,7 @@ v1.0.0 (2024-12-26)
         </news>
     </extension>
 </addon>
-    <addon id="repository.israelwizard" name="Israel Wizard Repository" version="1.0.2" provider-name="Israel Kodi Community">
+    <addon id="repository.israelwizard" name="Israel Wizard Repository" version="1.0.3" provider-name="Israel Kodi Community">
     
     <extension point="xbmc.addon.repository" name="Israel Wizard Repository">
         <info compressed="false">https://jacquelynnale.github.io/kodirealdebridisraelwizard/addons.xml</info>

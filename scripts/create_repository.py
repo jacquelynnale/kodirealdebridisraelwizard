@@ -70,8 +70,8 @@ def create_addon_zip(addon_name, version=None):
     
     print(f'Creating ZIP: {zip_path}...')
     
-    # Manual ZIP creation - ONE LEVEL ONLY
-    with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as zf:
+    # Manual ZIP creation - ONE LEVEL ONLY - NO COMPRESSION (Safe Mode++)
+    with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_STORED) as zf:
         # Walk the addon directory
         for root, dirs, files in os.walk(addon_path):
             # EXCLUDE everything irrelevant
@@ -89,6 +89,9 @@ def create_addon_zip(addon_name, version=None):
                 
                 rel_path = os.path.relpath(abs_path, addon_path) # path relative to addon folder
                 zip_arcname = os.path.join(addon_name, rel_path) # addon_id/rel_path
+                
+                # FORCE FORWARD SLASHES (Critical for Kodi/Zip standard)
+                zip_arcname = zip_arcname.replace(os.sep, '/')
                 
                 zf.write(abs_path, zip_arcname)
     
