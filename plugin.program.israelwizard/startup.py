@@ -24,8 +24,11 @@ def run():
         with open(FIRST_RUN_FILE, 'w') as f:
             f.write('done')
             
-        # Launch the wizard
-        xbmc.executebuiltin(f'RunAddon({ADDON_ID})')
+        # Launch the wizard install menu directly
+        # Adding a small delay to ensure Kodi is ready
+        xbmc.sleep(2000)
+        url = f'plugin://{ADDON_ID}/?action=install_menu'
+        xbmc.executebuiltin(f'ActivateWindow(Videos,{url},return)')
     else:
         log('Not first run. Skipping auto-launch.')
 
