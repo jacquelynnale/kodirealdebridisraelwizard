@@ -83,6 +83,9 @@ def create_addon_zip(addon_name, version=None):
     
     print(f'[OK] Created: {zip_path}')
     return zip_path
+
+
+def get_addon_xml(addon_path):
     """Parse and return addon.xml content."""
     addon_xml_path = os.path.join(addon_path, 'addon.xml')
     if not os.path.exists(addon_xml_path):
