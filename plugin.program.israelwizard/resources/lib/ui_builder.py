@@ -28,6 +28,51 @@ class UIBuilder:
     def __init__(self):
         self.dialog = xbmcgui.Dialog()
         
+    def configure_widgets(self):
+        """Inject pre-configured widgets for FENTastic/AH2."""
+        try:
+            # POV Plugin Paths (Standard paths for widgets)
+            # Note: These paths assume POV context menu structure. 
+            # If changed in POV, these might need update.
+            WIDGET_PATHS = {
+                'movies_trending': 'plugin://plugin.video.pov/?action=movies&url=trending',
+                'tv_trending': 'plugin://plugin.video.pov/?action=tvshows&url=trending',
+                'movies_new': 'plugin://plugin.video.pov/?action=movies&url=popular',
+            }
+            
+            # FENTastic Settings Injection
+            # We explicitly write the settings.xml for the skin to force widgets
+            fentastic_data = xbmcvfs.translatePath('special://userdata/addon_data/skin.fentastic/')
+            if not os.path.exists(fentastic_data):
+                os.makedirs(fentastic_data)
+                
+            settings_path = os.path.join(fentastic_data, 'settings.xml')
+            
+            # Basic Fentastic Widget Config
+            # Widget.1 = Movies, Widget.2 = TV
+            content = f'''<settings version="2">
+    <setting id="Widget.1.Label">סרטים חמים</setting>
+    <setting id="Widget.1.Content">{WIDGET_PATHS['movies_trending']}</setting>
+    <setting id="Widget.1.Type">poster</setting>
+    
+    <setting id="Widget.2.Label">סדרות פופולריות</setting>
+    <setting id="Widget.2.Content">{WIDGET_PATHS['tv_trending']}</setting>
+    <setting id="Widget.2.Type">landscape</setting>
+    
+    <setting id="Widget.3.Label">חדש בקולנוע</setting>
+    <setting id="Widget.3.Content">{WIDGET_PATHS['movies_new']}</setting>
+    <setting id="Widget.3.Type">poster</setting>
+</settings>'''
+            
+            with open(settings_path, 'w', encoding='utf-8') as f:
+                f.write(content)
+                
+            self.log('Configured FENTastic widgets')
+            return True
+        except Exception as e:
+            self.log(f'Widget setup error: {str(e)}', xbmc.LOGERROR)
+            return False
+
     def disable_resource_hogs(self):
         """Disable non-essential services for speed."""
         settings = [
@@ -88,6 +133,7 @@ class UIBuilder:
             
             # Configure Netflix Layout
             self.setup_netflix_layout()
+            self.configure_widgets()
             
             # Max Performance Tweaks
             self.disable_resource_hogs()
