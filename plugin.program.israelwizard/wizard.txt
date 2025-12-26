@@ -1,0 +1,134 @@
+# Israel Wizard Configuration
+# ישראל וויזארד - קובץ הגדרות
+# Version: 1.0.0
+# Compatible: Kodi 21 Omega
+
+[wizard]
+name = ישראל וויזארד
+version = 1.0.0
+icon = https://raw.githubusercontent.com/israelwizard/kodirealdebridisraelwizard/main/plugin.program.israelwizard/resources/icon.png
+fanart = https://raw.githubusercontent.com/israelwizard/kodirealdebridisraelwizard/main/plugin.program.israelwizard/resources/fanart.jpg
+extracted = 85
+zip = 75
+
+[builds]
+# Full Featured Build - בילד מלא
+full_name = Israel Full Build - בילד מלא
+full_version = 1.0.0
+full_url = https://github.com/israelwizard/kodirealdebridisraelwizard/releases/download/v1.0.0/israel-full-build-1.0.0.zip
+full_description = בילד מלא עם כל התוספים, הסקינים והווידג'טים. מותאם ל-Firestick ו-Android TV.
+full_kodi = 21
+full_icon = https://raw.githubusercontent.com/israelwizard/kodirealdebridisraelwizard/main/builds/full/icon.png
+full_fanart = https://raw.githubusercontent.com/israelwizard/kodirealdebridisraelwizard/main/builds/full/fanart.jpg
+full_preview = https://www.youtube.com/watch?v=PREVIEW_VIDEO_ID
+
+# Fresh/Minimal Build - בילד נקי
+fresh_name = Israel Fresh Build - בילד נקי
+fresh_version = 1.0.0
+fresh_url = https://github.com/israelwizard/kodirealdebridisraelwizard/releases/download/v1.0.0/israel-fresh-build-1.0.0.zip
+fresh_description = בילד נקי עם תוספים בסיסיים בלבד. מושלם להתחלה נקייה.
+fresh_kodi = 21
+fresh_icon = https://raw.githubusercontent.com/israelwizard/kodirealdebridisraelwizard/main/builds/fresh/icon.png
+fresh_fanart = https://raw.githubusercontent.com/israelwizard/kodirealdebridisraelwizard/main/builds/fresh/fanart.jpg
+
+[update]
+# Auto-update configuration
+check_url = https://raw.githubusercontent.com/israelwizard/kodirealdebridisraelwizard/main/plugin.program.israelwizard/addon.xml
+update_url = https://github.com/israelwizard/kodirealdebridisraelwizard/releases/latest
+notification = true
+auto_update = false
+
+[repositories]
+# Repository URLs for auto-installation
+repo_1_name = Burekas Repo
+repo_1_url = https://burekas.github.io/repository.burekas/repository.burekas-1.0.0.zip
+
+repo_2_name = Fishenzon Repo
+repo_2_url = https://fishenzon.github.io/repository.fishenzon/repository.fishenzon-1.0.0.zip
+
+repo_3_name = Kodi Fitzwell
+repo_3_url = https://kodifitzwell.github.io/repo/repository.kodifitzwell-1.0.0.zip
+
+repo_4_name = Hooty Repository (Otaku)
+repo_4_url = https://goldenfreddy0703.github.io/repository.hooty/repository.hooty-1.0.0.zip
+
+repo_5_name = Peno64 Repository
+repo_5_url = https://peno64.github.io/repository.peno64/repository.peno64-1.0.0.zip
+
+[addons]
+# Video Addons
+addon_1_id = plugin.video.pov
+addon_1_repo = repository.kodifitzwell
+
+addon_2_id = plugin.video.otaku
+addon_2_repo = repository.hooty
+
+addon_3_id = plugin.video.youtube
+addon_3_repo = repository.xbmc.org
+
+addon_4_id = plugin.video.idanplus
+addon_4_repo = repository.fishenzon
+
+# Subtitle Addons
+addon_5_id = service.subtitles.all_subs_plus
+addon_5_repo = repository.burekas
+
+addon_6_id = service.subtitles.darksubs
+addon_6_repo = repository.burekas
+
+addon_7_id = service.subtitles.localsubtitle
+addon_7_repo = repository.xbmc.org
+
+# Utility Addons
+addon_8_id = script.inputstreamhelper
+addon_8_repo = repository.xbmc.org
+
+addon_9_id = script.keyboardautocompletion
+addon_9_repo = repository.xbmc.org
+
+[services]
+# Real Debrid Configuration
+rd_priority = 90
+rd_auth_url = https://real-debrid.com/device
+rd_api_url = https://api.real-debrid.com/rest/1.0
+
+# Trakt Configuration
+trakt_auth_url = https://trakt.tv/activate
+trakt_api_url = https://api.trakt.tv
+
+# MDBList Configuration
+mdblist_url = https://mdblist.com
+mdblist_api_url = https://mdblist.com/api
+
+# Premiumize Configuration
+premiumize_auth_url = https://www.premiumize.me/authorize
+premiumize_api_url = https://www.premiumize.me/api
+
+[paths]
+# Backup/Restore paths
+backup_addons = addons
+backup_userdata = userdata
+backup_database = userdata/Database
+backup_addon_data = userdata/addon_data
+backup_keymaps = userdata/keymaps
+backup_playlists = userdata/playlists
+
+[notifications]
+# Community Links
+telegram = t.me/israelkodi
+github = github.com/israelwizard/kodirealdebridisraelwizard
+website = https://israelwizard.github.io
+
+[skins]
+# Recommended skins
+skin_1 = skin.arctic.zephyr.2
+skin_2 = skin.aeon.nox.silvo
+
+[theme]
+# Color scheme
+background = #000000
+secondary = #171717
+accent = #0066CC
+success = #00CC66
+warning = #CC6600
+error = #CC0000

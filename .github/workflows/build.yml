@@ -1,0 +1,119 @@
+name: Build and Release
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Validate Python syntax
+        run: |
+          python -m py_compile plugin.program.israelwizard/main.py
+          python -m py_compile plugin.program.israelwizard/resources/lib/*.py
+          python -m py_compile scripts/create_repository.py
+          echo "✓ Python syntax validation passed"
+      
+      - name: Validate addon.xml
+        run: |
+          python -c "
+          from xml.etree import ElementTree
+          for addon in ['plugin.program.israelwizard', 'repository.israelwizard']:
+              tree = ElementTree.parse(f'{addon}/addon.xml')
+              root = tree.getroot()
+              print(f'✓ {addon}: {root.get(\"id\")} v{root.get(\"version\")}')
+          "
+
+  build:
+    needs: validate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Generate repository files
+        run: |
+          python scripts/create_repository.py --validate --zip
+      
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: kodi-addons
+          path: releases/*.zip
+
+  release:
+    needs: build
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Build release packages
+        run: |
+          python scripts/create_repository.py --zip --release ${{ github.ref_name }}
+      
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            releases/*.zip
+            repository.israelwizard/addons.xml
+            repository.israelwizard/addons.xml.md5
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  pages:
+    needs: build
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Generate repository
+        run: python scripts/create_repository.py
+      
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: repository.israelwizard
+      
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

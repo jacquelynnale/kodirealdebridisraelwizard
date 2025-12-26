@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<settings version="2">
+    <!-- Language Settings - Hebrew -->
+    <setting id="locale.language">resource.language.he_il</setting>
+    <setting id="locale.charset">UTF-8</setting>
+    
+    <!-- Skin Settings - Arctic Zephyr Reloaded -->
+    <setting id="lookandfeel.skin">skin.arctic.zephyr.2</setting>
+    <setting id="lookandfeel.skinzoom">0</setting>
+    
+    <!-- Regional Settings - Israel -->
+    <setting id="locale.country">Israel</setting>
+    <setting id="locale.timezone">Asia/Jerusalem</setting>
+    <setting id="locale.temperatureunit">C</setting>
+    <setting id="locale.use24hourclock">true</setting>
+    
+    <!-- Video Settings -->
+    <setting id="videoplayer.adjustrefreshrate">2</setting>
+    <setting id="videoplayer.autoplaynextitem">1</setting>
+    
+    <!-- Subtitle Settings - Hebrew Priority -->
+    <setting id="subtitles.languages">Hebrew,English</setting>
+    <setting id="subtitles.height">28</setting>
+    <setting id="subtitles.charset">Hebrew (Windows)</setting>
+    <setting id="subtitles.searchfirst">true</setting>
+    <setting id="subtitles.pauseonsearch">true</setting>
+    
+    <!-- Interface Settings -->
+    <setting id="lookandfeel.enablerssfeeds">false</setting>
+    
+    <!-- Performance Settings (Firestick Optimized) -->
+    <setting id="videoplayer.usemediacodec">true</setting>
+    <setting id="videoplayer.usemediacodecsurface">true</setting>
+    
+    <!-- Addons Settings -->
+    <setting id="addons.autoupdates">2</setting>
+</settings>

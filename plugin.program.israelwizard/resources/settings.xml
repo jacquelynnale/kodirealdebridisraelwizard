@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings>
+    <category label="32001">
+        <setting id="wizard.auto_update" type="bool" label="32010" default="true"/>
+        <setting id="wizard.check_interval" type="slider" label="32011" default="24" range="1,168" option="int"/>
+        <setting id="wizard.notify_updates" type="bool" label="32012" default="true"/>
+    </category>
+    
+    <category label="32002">
+        <setting id="rd.enabled" type="bool" label="32020" default="true"/>
+        <setting id="rd.priority" type="slider" label="32021" default="90" range="1,100" option="int"/>
+        <setting id="rd.auto_auth" type="bool" label="32022" default="true"/>
+        <setting id="trakt.enabled" type="bool" label="32023" default="true"/>
+        <setting id="mdblist.enabled" type="bool" label="32024" default="true"/>
+    </category>
+    
+    <category label="32003">
+        <setting id="backup.location" type="folder" label="32030" default=""/>
+        <setting id="backup.include_addons" type="bool" label="32031" default="true"/>
+        <setting id="backup.include_userdata" type="bool" label="32032" default="true"/>
+        <setting id="backup.auto_backup" type="bool" label="32033" default="false"/>
+    </category>
+    
+    <category label="32004">
+        <setting id="ui.language" type="labelenum" label="32040" values="Hebrew|English" default="Hebrew"/>
+        <setting id="ui.skin" type="labelenum" label="32041" values="Arctic Zephyr|Aeon Nox|Default" default="Arctic Zephyr"/>
+        <setting id="ui.theme" type="labelenum" label="32042" values="Dark Blue|Dark|Light" default="Dark Blue"/>
+    </category>
+    
+    <category label="32005">
+        <setting id="debug.enabled" type="bool" label="32050" default="false"/>
+        <setting id="debug.log_level" type="labelenum" label="32051" values="Info|Debug|Error" default="Info"/>
+    </category>
+</settings>

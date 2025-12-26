@@ -1,0 +1,203 @@
+# Kodi PO file for Hebrew translations
+# Israel Wizard - ישראל וויזארד
+# Language: Hebrew (Israel)
+# Encoding: UTF-8
+
+msgid ""
+msgstr ""
+"Project-Id-Version: plugin.program.israelwizard 1.0.0\n"
+"Report-Msgid-Bugs-To: https://github.com/israelwizard/kodirealdebridisraelwizard\n"
+"POT-Creation-Date: 2024-12-26 00:00+0200\n"
+"PO-Revision-Date: 2024-12-26 00:00+0200\n"
+"Last-Translator: Israel Kodi Community\n"
+"Language-Team: Hebrew\n"
+"Language: he_IL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+# Main Menu
+msgctxt "#32001"
+msgid "Wizard Settings"
+msgstr "הגדרות אשף"
+
+msgctxt "#32002"
+msgid "Services"
+msgstr "שירותים"
+
+msgctxt "#32003"
+msgid "Backup"
+msgstr "גיבוי"
+
+msgctxt "#32004"
+msgid "Interface"
+msgstr "ממשק"
+
+msgctxt "#32005"
+msgid "Debug"
+msgstr "דיבוג"
+
+# Wizard Settings
+msgctxt "#32010"
+msgid "Auto Update"
+msgstr "עדכון אוטומטי"
+
+msgctxt "#32011"
+msgid "Check Interval (hours)"
+msgstr "בדיקה כל (שעות)"
+
+msgctxt "#32012"
+msgid "Notify on Updates"
+msgstr "הודעה על עדכונים"
+
+# Services
+msgctxt "#32020"
+msgid "Real Debrid Enabled"
+msgstr "Real Debrid פעיל"
+
+msgctxt "#32021"
+msgid "Real Debrid Priority"
+msgstr "עדיפות Real Debrid"
+
+msgctxt "#32022"
+msgid "Auto Authenticate"
+msgstr "אימות אוטומטי"
+
+msgctxt "#32023"
+msgid "Trakt Enabled"
+msgstr "Trakt פעיל"
+
+msgctxt "#32024"
+msgid "MDBList Enabled"
+msgstr "MDBList פעיל"
+
+# Backup
+msgctxt "#32030"
+msgid "Backup Location"
+msgstr "מיקום גיבוי"
+
+msgctxt "#32031"
+msgid "Include Addons"
+msgstr "כולל תוספים"
+
+msgctxt "#32032"
+msgid "Include Userdata"
+msgstr "כולל נתוני משתמש"
+
+msgctxt "#32033"
+msgid "Auto Backup"
+msgstr "גיבוי אוטומטי"
+
+# Interface
+msgctxt "#32040"
+msgid "Language"
+msgstr "שפה"
+
+msgctxt "#32041"
+msgid "Skin"
+msgstr "עיצוב"
+
+msgctxt "#32042"
+msgid "Theme"
+msgstr "ערכת נושא"
+
+# Debug
+msgctxt "#32050"
+msgid "Debug Mode"
+msgstr "מצב דיבוג"
+
+msgctxt "#32051"
+msgid "Log Level"
+msgstr "רמת לוג"
+
+# Menu Items
+msgctxt "#33001"
+msgid "Install Build"
+msgstr "התקנת בילד"
+
+msgctxt "#33002"
+msgid "Install Repos"
+msgstr "התקנת מאגרים"
+
+msgctxt "#33003"
+msgid "Install Addons"
+msgstr "התקנת תוספים"
+
+msgctxt "#33004"
+msgid "My Services"
+msgstr "שירותים שלי"
+
+msgctxt "#33005"
+msgid "Backup & Restore"
+msgstr "גיבוי ושחזור"
+
+msgctxt "#33006"
+msgid "Settings"
+msgstr "הגדרות"
+
+msgctxt "#33007"
+msgid "About"
+msgstr "אודות"
+
+# Home Screen
+msgctxt "#34001"
+msgid "POV"
+msgstr "POV"
+
+msgctxt "#34002"
+msgid "My Movies"
+msgstr "סרטים שלי"
+
+msgctxt "#34003"
+msgid "TV Series"
+msgstr "סדרות TV"
+
+msgctxt "#34004"
+msgid "Movies"
+msgstr "סרטים"
+
+msgctxt "#34005"
+msgid "Israeli TV"
+msgstr "טלוויזיה ישראלית"
+
+msgctxt "#34006"
+msgid "Israeli Content"
+msgstr "תוכן ישראלי"
+
+msgctxt "#34007"
+msgid "Real Debrid"
+msgstr "Real Debrid"
+
+msgctxt "#34008"
+msgid "Favorites"
+msgstr "מועדפים"
+
+# Status Messages
+msgctxt "#35001"
+msgid "Installing..."
+msgstr "מתקין..."
+
+msgctxt "#35002"
+msgid "Success!"
+msgstr "הצלחה!"
+
+msgctxt "#35003"
+msgid "Failed"
+msgstr "נכשל"
+
+msgctxt "#35004"
+msgid "Connected"
+msgstr "מחובר"
+
+msgctxt "#35005"
+msgid "Not Connected"
+msgstr "לא מחובר"
+
+msgctxt "#35006"
+msgid "Please Wait..."
+msgstr "אנא המתן..."
+
+msgctxt "#35007"
+msgid "Restart Required"
+msgstr "נדרש אתחול"
