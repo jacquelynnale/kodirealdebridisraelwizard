@@ -1,10 +1,5 @@
-# Israel Wizard Configuration
-# ישראל וויזארד - קובץ הגדרות
-# Version: 1.0.0
-# Compatible: Kodi 21 Omega
-
 [wizard]
-name = ישראל וויזארד
+name = Israel Wizard
 version = 1.0.0
 icon = https://raw.githubusercontent.com/jacquelynnale/kodirealdebridisraelwizard/main/plugin.program.israelwizard/resources/icon.png
 fanart = https://raw.githubusercontent.com/jacquelynnale/kodirealdebridisraelwizard/main/plugin.program.israelwizard/resources/fanart.jpg
@@ -12,21 +7,21 @@ extracted = 85
 zip = 75
 
 [builds]
-# Full Featured Build - בילד מלא
-full_name = Israel Full Build - בילד מלא
+# Full Featured Build
+full_name = Israel Full Build
 full_version = 1.0.0
 full_url = https://raw.githubusercontent.com/jacquelynnale/kodirealdebridisraelwizard/main/releases/israel-full-build-1.0.0.zip
-full_description = בילד מלא עם כל התוספים, הסקינים והווידג'טים. מותאם ל-Firestick ו-Android TV.
+full_description = Full build with all addons, skins, and widgets. Optimized for Firestick and Android TV.
 full_kodi = 21
 full_icon = https://raw.githubusercontent.com/jacquelynnale/kodirealdebridisraelwizard/main/builds/full/icon.png
 full_fanart = https://raw.githubusercontent.com/jacquelynnale/kodirealdebridisraelwizard/main/builds/full/fanart.jpg
 full_preview = https://www.youtube.com/watch?v=PREVIEW_VIDEO_ID
 
-# Fresh/Minimal Build - בילד נקי
-fresh_name = Israel Fresh Build - בילד נקי
+# Fresh/Minimal Build
+fresh_name = Israel Fresh Build
 fresh_version = 1.0.0
 fresh_url = https://raw.githubusercontent.com/jacquelynnale/kodirealdebridisraelwizard/main/releases/israel-full-build-1.0.0.zip
-fresh_description = בילד נקי עם תוספים בסיסיים בלבד. מושלם להתחלה נקייה.
+fresh_description = Clean build with essential addons only. Perfect for a fresh start.
 fresh_kodi = 21
 fresh_icon = https://raw.githubusercontent.com/jacquelynnale/kodirealdebridisraelwizard/main/builds/fresh/icon.png
 fresh_fanart = https://raw.githubusercontent.com/jacquelynnale/kodirealdebridisraelwizard/main/builds/fresh/fanart.jpg

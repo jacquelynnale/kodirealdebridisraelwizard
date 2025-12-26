@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addons>
-    <addon id="plugin.program.israelwizard" name="ישראל וויזארד - Israel Wizard" version="1.0.5" provider-name="Israel Kodi Community">
+    <addon id="plugin.program.israelwizard" name="Israel Wizard" version="1.0.7" provider-name="Israel Kodi Community">
     
     <requires>
         <import addon="xbmc.python" version="3.0.0" />
@@ -17,33 +17,8 @@
     </extension>
     
     <extension point="xbmc.addon.metadata">
-        <summary lang="he_IL">אשף התקנה ישראלי מקצועי לקודי עם תמיכה ב-Real Debrid</summary>
         <summary lang="en_GB">Professional Israeli Kodi Wizard with Real Debrid Support</summary>
-        
-        <description lang="he_IL">
-ישראל וויזארד - האשף המקצועי הישראלי לקודי 21 אומגה
-
-✨ תכונות עיקריות:
-• התקנה אוטומטית של כל התוספים והמאגרים
-• אינטגרציה מלאה עם Real Debrid
-• תמיכה ב-Trakt, MDBList ו-Premiumize
-• ממשק עברי מלא עם תמיכה ב-RTL
-• אופטימיזציה ל-Firestick ו-Android TV
-• גיבוי ושחזור מלא של ההגדרות
-
-📺 תוספי וידאו:
-• POV - סטרימינג באיכות גבוהה
-• Otaku - אנימה
-• YouTube - הרשמי
-• עידן פלוס - טלוויזיה ישראלית
-
-🎬 כתוביות:
-• All Subs Plus
-• DarkSubs
-• LocalSubtitle
-
-מותאם במיוחד לצפייה בעברית!
-        </description>
+        <summary lang="he_IL">אשף התקנה ישראלי מקצועי לקודי עם תמיכה ב-Real Debrid</summary>
         
         <description lang="en_GB">
 Israel Wizard - Professional Israeli Kodi 21 Omega Wizard
@@ -52,7 +27,7 @@ Israel Wizard - Professional Israeli Kodi 21 Omega Wizard
 • Automatic installation of all addons and repositories
 • Full Real Debrid integration
 • Support for Trakt, MDBList and Premiumize
-• Full Hebrew interface with RTL support
+• Full English/Hebrew interface
 • Optimized for Firestick and Android TV
 • Full backup and restore functionality
 
@@ -66,11 +41,8 @@ Israel Wizard - Professional Israeli Kodi 21 Omega Wizard
 • All Subs Plus
 • DarkSubs
 • LocalSubtitle
-
-Specially designed for Hebrew viewing!
         </description>
         
-        <disclaimer lang="he_IL">האשף הזה מיועד לשימוש חוקי בלבד. אנא ודא שיש לך זכויות לצפות בתוכן.</disclaimer>
         <disclaimer lang="en_GB">This wizard is for legal use only. Please ensure you have rights to view content.</disclaimer>
         
         <platform>all</platform>
@@ -86,19 +58,18 @@ Specially designed for Hebrew viewing!
         </assets>
         
         <news>
-v1.0.0 (2024-12-26)
-- השקה ראשונית של ישראל וויזארד
-- תמיכה מלאה ב-Kodi 21 Omega
-- אינטגרציה עם Real Debrid
-- ממשק עברי מקצועי
+v1.0.7 (2024-12-27)
+- Switched default interface to English
+- Fixed connection issues with raw GitHub URLs
+- Added auto-start service
         </news>
     </extension>
 </addon>
-    <addon id="repository.israelwizard" name="Israel Wizard Repository" version="1.0.5" provider-name="Israel Kodi Community">
+    <addon id="repository.israelwizard" name="Israel Wizard Repository" version="1.0.7" provider-name="Israel Kodi Community">
     
     <extension point="xbmc.addon.repository" name="Israel Wizard Repository">
-        <info compressed="false">https://jacquelynnale.github.io/kodirealdebridisraelwizard/addons.xml</info>
-        <checksum>https://jacquelynnale.github.io/kodirealdebridisraelwizard/addons.xml.md5</checksum>
+        <info compressed="false">https://raw.githubusercontent.com/jacquelynnale/kodirealdebridisraelwizard/main/addons.xml</info>
+        <checksum>https://raw.githubusercontent.com/jacquelynnale/kodirealdebridisraelwizard/main/addons.xml.md5</checksum>
         <datadir zip="true">https://jacquelynnale.github.io/kodirealdebridisraelwizard/zips/</datadir>
     </extension>
     
