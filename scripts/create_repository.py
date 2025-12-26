@@ -49,39 +49,50 @@ def save_addons_xml(content):
 
 
 def create_addon_zip(addon_name, version=None):
-    """Create ZIP package for an addon in zips/addon_id/."""
+    """Create SIMPLE ZIP package to prevent Kodi crash."""
     addon_path = os.path.join(REPO_ROOT, addon_name)
     if not os.path.isdir(addon_path):
         print(f'✗ Addon not found: {addon_name}')
         return None
     
-    # Get version from addon.xml if not provided
+    # Get version
     if not version:
         addon_xml_path = os.path.join(addon_path, 'addon.xml')
         tree = ElementTree.parse(addon_xml_path)
         version = tree.getroot().get('version', '1.0.0')
     
-    # Create zips/addon_id/ folder
+    # Ensure zips output dir exists
     addon_zips_dir = os.path.join(ZIPS_DIR, addon_name)
     os.makedirs(addon_zips_dir, exist_ok=True)
     
     zip_name = f'{addon_name}-{version}.zip'
     zip_path = os.path.join(addon_zips_dir, zip_name)
     
+    print(f'Creating ZIP: {zip_path}...')
+    
+    # Manual ZIP creation - ONE LEVEL ONLY
     with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as zf:
+        # Walk the addon directory
         for root, dirs, files in os.walk(addon_path):
-            # Skip unwanted directories
-            dirs[:] = [d for d in dirs if d not in ['.git', '__pycache__', '.idea', 'zips', 'releases']]
+            # EXCLUDE everything irrelevant
+            dirs[:] = [d for d in dirs if d not in ['.git', '__pycache__', '.idea', 'zips', 'releases', 'bin', 'obj']]
             
             for file in files:
-                if file.endswith(('.pyc', '.pyo', '.DS_Store')):
+                if file.endswith(('.pyc', '.pyo', '.DS_Store', '.zip')):
                     continue
                 
-                file_path = os.path.join(root, file)
-                arcname = os.path.relpath(file_path, REPO_ROOT)
-                zf.write(file_path, arcname)
+                abs_path = os.path.join(root, file)
+                
+                # Critical: Calculate path inside ZIP
+                # Must be: addon_id/file.xml
+                # NOT: addon_id/addon_id/file.xml
+                
+                rel_path = os.path.relpath(abs_path, addon_path) # path relative to addon folder
+                zip_arcname = os.path.join(addon_name, rel_path) # addon_id/rel_path
+                
+                zf.write(abs_path, zip_arcname)
     
-    print(f'[OK] Created: {zip_path}')
+    print(f'[OK] Created Safe ZIP: {zip_path}')
     return zip_path
 
 
