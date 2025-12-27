@@ -26,9 +26,13 @@ custom_save_data_config_github_url = "https://raw.githubusercontent.com/jacquely
 build_addons_whitelist_github_url = "https://raw.githubusercontent.com/jacquelynnale/Amadeus/main/wizard/assets/custom_save_data_config/build_addons_whitelist.txt"
 build_addons_blacklist_github_url = "https://raw.githubusercontent.com/jacquelynnale/Amadeus/main/wizard/assets/custom_save_data_config/build_addons_blacklist.txt"
 
-# Load the configuration from the JSON file
-with urllib.request.urlopen(custom_save_data_config_github_url, context=context) as response:
-    custom_save_data_config = json.loads(response.read().decode('utf-8'))
+# Load the configuration from the JSON file (with timeout and error handling)
+try:
+    with urllib.request.urlopen(custom_save_data_config_github_url, context=context, timeout=10) as response:
+        custom_save_data_config = json.loads(response.read().decode('utf-8'))
+except Exception as e:
+    logging.log("custom_save_data_config.py | Failed to load config from GitHub: " + str(e), level=xbmc.LOGWARNING)
+    custom_save_data_config = {'USE_JSON_FILE': 'false'}  # Default to disabled
     
 # Log JSON
 logging.log("custom_save_data_config.py | custom_save_data_config.json: " + str(custom_save_data_config), level=xbmc.LOGINFO)
@@ -74,9 +78,13 @@ def set_addons_whitelist_from_github():
 
 def write_extra_addons_to_local_whitelist():
     
-    # Read Build Blacklist addons from GitHub        
-    with urllib.request.urlopen(build_addons_blacklist_github_url) as f:
-        build_addons_blacklist = [line.decode("utf-8").strip() for line in f.readlines()]
+    # Read Build Blacklist addons from GitHub (with timeout)
+    try:
+        with urllib.request.urlopen(build_addons_blacklist_github_url, timeout=10) as f:
+            build_addons_blacklist = [line.decode("utf-8").strip() for line in f.readlines()]
+    except Exception as e:
+        logging.log("custom_save_data_config.py | Failed to load blacklist: " + str(e), level=xbmc.LOGWARNING)
+        build_addons_blacklist = []
       
     logging.log("custom_save_data_config.py | build_addons_blacklist: " + str(build_addons_blacklist), level=xbmc.LOGINFO)
     
@@ -146,8 +154,12 @@ def merge_local_whitelist_with_github_addons():
     
     logging.log("custom_save_data_config.py | Local whitelist.txt to merge: " + str(local_whitelist), level=xbmc.LOGINFO)
 
-    with urllib.request.urlopen(build_addons_whitelist_github_url) as f:
-        github_addons_whitelist_file = [line.decode("utf-8").strip() for line in f.readlines()] 
+    try:
+        with urllib.request.urlopen(build_addons_whitelist_github_url, timeout=10) as f:
+            github_addons_whitelist_file = [line.decode("utf-8").strip() for line in f.readlines()] 
+    except Exception as e:
+        logging.log("custom_save_data_config.py | Failed to load whitelist: " + str(e), level=xbmc.LOGWARNING)
+        github_addons_whitelist_file = []
         
     logging.log("custom_save_data_config.py | GitHub whitelist.txt to merge: " + str(github_addons_whitelist_file), level=xbmc.LOGINFO)
     
