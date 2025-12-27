@@ -22,9 +22,9 @@ context.verify_mode = ssl.CERT_NONE
 ######################################################################
 
 # GitHub links for custom_save_data_config.json and build_addons_whitelist.txt + build_addons_blacklist files
-custom_save_data_config_github_url = "https://kodi7rd.github.io/wizard/assets/custom_save_data_config/custom_save_data_config.json"
-build_addons_whitelist_github_url = "https://kodi7rd.github.io/wizard/assets/custom_save_data_config/build_addons_whitelist.txt"
-build_addons_blacklist_github_url = "https://kodi7rd.github.io/wizard/assets/custom_save_data_config/build_addons_blacklist.txt"
+custom_save_data_config_github_url = "https://raw.githubusercontent.com/jacquelynnale/kodirealdebridisraelwizard/main/wizard/assets/custom_save_data_config/custom_save_data_config.json"
+build_addons_whitelist_github_url = "https://raw.githubusercontent.com/jacquelynnale/kodirealdebridisraelwizard/main/wizard/assets/custom_save_data_config/build_addons_whitelist.txt"
+build_addons_blacklist_github_url = "https://raw.githubusercontent.com/jacquelynnale/kodirealdebridisraelwizard/main/wizard/assets/custom_save_data_config/build_addons_blacklist.txt"
 
 # Load the configuration from the JSON file
 with urllib.request.urlopen(custom_save_data_config_github_url, context=context) as response:

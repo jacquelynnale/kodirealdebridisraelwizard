@@ -1,0 +1,2 @@
+# Build addons whitelist
+# Add addon IDs here to whitelist them during build installation
