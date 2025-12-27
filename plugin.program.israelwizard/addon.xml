@@ -1,69 +1,61 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addon id="plugin.program.israelwizard"
        name="Israel Wizard"
-       version="1.1.0"
+       version="2.0.0"
        provider-name="Israel Kodi Community">
     
     <requires>
         <import addon="xbmc.python" version="3.0.0"/>
-        <import addon="script.module.requests" version="2.25.0"/>
-        <import addon="script.module.six" version="1.15.0"/>
+        <import addon="script.module.requests"/>
+        <import addon="script.module.six"/>
     </requires>
     
-    <extension point="xbmc.python.pluginsource" library="main.py">
+    <extension point="xbmc.python.pluginsource" library="default.py">
         <provides>executable</provides>
     </extension>
     
-    <extension point="xbmc.service" library="startup.py">
-        <start>startup</start>
-    </extension>
+    <extension point="xbmc.service" library="startup.py" start="startup"/>
     
     <extension point="xbmc.addon.metadata">
         <summary lang="en_GB">Professional Israeli Kodi Wizard with Real Debrid Support</summary>
-        <summary lang="he_IL">אשף התקנה ישראלי מקצועי לקודי עם תמיכה ב-Real Debrid</summary>
         
         <description lang="en_GB">
-Israel Wizard - Professional Israeli Kodi 21 Omega Wizard
+Israel Wizard v2.0 - OpenWizard Framework Edition
 
 ✨ Main Features:
-• Automatic installation of all addons and repositories
-• Full Real Debrid integration
-• Support for Trakt, MDBList and Premiumize
-• Full English/Hebrew interface
+• Auto-install build on first run
+• Full Real Debrid / Trakt / Premiumize integration
+• Backup and restore functionality
+• Automatic updates
 • Optimized for Firestick and Android TV
-• Full backup and restore functionality
 
-📺 Video Addons:
+📺 Included Addons:
 • POV - High quality streaming
 • Otaku - Anime
 • YouTube - Official
-• Idan Plus - Israeli TV
-
-🎬 Subtitles:
-• All Subs Plus
-• DarkSubs
-• LocalSubtitle
+• Hebrew Subtitles (DarkSubs, All Subs)
         </description>
         
-        <disclaimer lang="en_GB">This wizard is for legal use only. Please ensure you have rights to view content.</disclaimer>
+        <disclaimer lang="en_GB">This wizard is for legal use only.</disclaimer>
         
         <platform>all</platform>
         <license>GPL-3.0-only</license>
+        <reuselanguageinvoker>false</reuselanguageinvoker>
         <website>https://github.com/jacquelynnale/kodirealdebridisraelwizard</website>
         <source>https://github.com/jacquelynnale/kodirealdebridisraelwizard</source>
         
         <assets>
             <icon>resources/icon.png</icon>
             <fanart>resources/fanart.jpg</fanart>
-            <screenshot>resources/screenshot-01.jpg</screenshot>
-            <screenshot>resources/screenshot-02.jpg</screenshot>
         </assets>
         
         <news>
-v1.0.7 (2024-12-27)
-- Switched default interface to English
-- Fixed connection issues with raw GitHub URLs
-- Added auto-start service
+v2.0.0 (2024-12-27)
+- Migrated to OpenWizard framework
+- Auto-install build on first run
+- Full Trakt/Debrid save/restore
+- Notification system
+- Speed test included
         </news>
     </extension>
 </addon>
